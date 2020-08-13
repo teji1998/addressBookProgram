@@ -43,6 +43,10 @@ import java.util.*;
 						firstName=sc.next();
 						edit(firstName);
 						break;
+					case 3: System.out.println("Enter first name of the person to be deleted");
+						firstName=sc.next();
+						del(firstName);
+						break;
 				}
 				System.out.println("Enter 0 to quit, 1 to go to main menu");
 				ch=sc.nextInt();
@@ -86,6 +90,9 @@ import java.util.*;
 				System.out.println("Enter 1 to continue editing,0 to quit");
 				ch=sc.nextInt();
 			}while(ch!=0);
-
 		}
-}
+		public void del(String name) {
+			personMap.remove(name);
+			System.out.println(name+"'s details has been deleted from address book");
+		}
+	}
