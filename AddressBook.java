@@ -14,7 +14,7 @@ import java.util.*;
 		public void menu() {
 			do {
 				System.out.println("---------MAIN MENU---------");
-				System.out.println("OPTIONS\n1.Add a person\n2.Edit Details");
+				System.out.println("OPTIONS\n1.Add a person\n2.Edit Details\n3.Delete a person");
 				System.out.println("Enter your choice");
 				ch=sc.nextInt();
 				switch(ch) {
