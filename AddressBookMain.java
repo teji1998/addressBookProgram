@@ -6,5 +6,6 @@ public class AddressBookMain {
 		AddressBook address=new AddressBook();
 		address.menu();
 	}
+
 }
 
