@@ -16,7 +16,7 @@ import java.util.*;
 		public void menu() {
 			do {
 				System.out.println("---------MAIN MENU---------");
-				System.out.println("OPTIONS\n1.Add a person\n2.Edit Details\n3.Delete a person\n4.Sort\n5.Print");
+				System.out.println("OPTIONS\n1.Add a person\n2.Edit Details\n3.Delete a person\n4.Sort\n5.Print\n6.Search person");
 				System.out.println("Enter your choice");
 				ch = sc.nextInt();
 				switch (ch) {
@@ -62,7 +62,10 @@ import java.util.*;
 					case 5:
 						print();
 						break;
-
+					case 6: System.out.println("Enter the name of the person to search");
+						state=sc.next();
+						search(state);
+						break;
 					default:
 						System.out.println("Invalid output!");
 				}
@@ -171,5 +174,9 @@ import java.util.*;
 				System.out.println("\nLast Name: "+p.getLastName()+"\nAddress: "+p.getStreet()+","+p.getCity()+","+p.getState()+","+p.getZipCode()+"\nPhone Num: "+p.getPhoneNum()+"\n");
 				System.out.println("------------------------------------------------------------------");
 			}
+		}
+		public void search(String name) {
+			PersonDetails p=personMap.get(name);
+			System.out.println(name+"'s details are:\nCity: "+p.getCity()+"\nState: "+p.getState());
 		}
 	}
