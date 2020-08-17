@@ -20,6 +20,7 @@ public class PersonDetails {
 		}
 
 		public String getFirstName() {
+
 			return firstName;
 		}
 
@@ -28,10 +29,12 @@ public class PersonDetails {
 		}
 
 		public String getLastName() {
+
 			return lastName;
 		}
 
 		public void setLastName(String lastName) {
+
 			this.lastName = lastName;
 		}
 
@@ -52,26 +55,32 @@ public class PersonDetails {
 		}
 
 		public String getState() {
+
 			return state;
 		}
 
 		public void setState(String state) {
+
 			this.state = state;
 		}
 
 		public int getZipCode() {
+
 			return zipCode;
 		}
 
 		public void setZipCode(int zipCode) {
+
 			this.zipCode = zipCode;
 		}
 
 		public long getPhoneNum() {
+
 			return phoneNum;
 		}
 
 		public void setPhoneNum(long phoneNum) {
+
 			this.phoneNum = phoneNum;
 		}
 
