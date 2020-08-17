@@ -4,12 +4,13 @@ import java.util.*;
 		static HashMap<String,PersonDetails> personMap=new HashMap<String,PersonDetails>();
 		Scanner sc=new Scanner(System.in);
 		String firstName;
-		String lastName=" ";
+		String lastName= " ";
 		String street=" ";
-		String city=" ";
+		String city= " ";
 		String state;
 		int zipCode;
 		long phoneNum=0;
+		String fullName;
 		int ch=0;
 		public void menu() {
 			do {
@@ -33,8 +34,13 @@ import java.util.*;
 						zipCode=sc.nextInt();
 						System.out.println("Enter phone number");
 						phoneNum=sc.nextLong();
-						PersonDetails person=new PersonDetails(firstName,lastName,street,city,state,zipCode,phoneNum);
-						personMap.put(person.getFirstName(), person);
+						if (personMap.containsKey(firstName)) {
+							System.out.println("Key already exists");
+						}
+						else {
+							PersonDetails person = new PersonDetails( firstName, lastName, street, city, state, zipCode, phoneNum);
+							personMap.put(person.getFirstName(), person);
+						}
 						System.out.println("Enter 1 to add more people, 0 to stop");
 						ch=sc.nextInt();
 					}while(ch!=0);break;
@@ -55,36 +61,34 @@ import java.util.*;
 			personMap.put(nameKey, P);
 		}
 		public void edit(String name) {
-			System.out.println("OPTIONS\n1.Edit last name\n2.Edit street\n3.Edit city\n4.Edit state\n5.Edit Zip code\n6.Edit phone number");
+			System.out.println("OPTIONS\n1.Edit street\n2.Edit city\n3.Edit state\n4.Edit Zip code\n5.Edit phone number");
 			do {
 				System.out.println("Enter your choice");
 				ch=sc.nextInt();
 				PersonDetails p=personMap.get(name);
 				switch(ch) {
-					case 1: System.out.println("Enter new last name");
-						String newName=sc.next();
-						p.setLastName(newName);
-						break;
-					case 2: System.out.println("Enter new street name");
+					case 1: System.out.println("Enter new street name");
 						String newStreet=sc.next();
 						p.setStreet(newStreet);
 						break;
-					case 3: System.out.println("Enter new city name");
+					case 2: System.out.println("Enter new city name");
 						String newCity=sc.next();
 						p.setCity(newCity);
 						break;
-					case 4: System.out.println("Enter new state name");
+					case 3: System.out.println("Enter new state name");
 						String newState=sc.next();
 						p.setState(newState);
 						break;
-					case 5: System.out.println("Enter new zip code");
+					case 4: System.out.println("Enter new zip code");
 						int newZip=sc.nextInt();
 						p.setZipCode(newZip);
 						break;
-					case 6: System.out.println("Enter new phone number");
+					case 5: System.out.println("Enter new phone number");
 						long newPhone=sc.nextLong();
 						p.setPhoneNum(newPhone);
 						break;
+					default:
+						System.out.println("Invalid output!");
 				}
 				System.out.println("Enter 1 to continue editing,0 to quit");
 				ch=sc.nextInt();
