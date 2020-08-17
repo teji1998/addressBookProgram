@@ -121,9 +121,12 @@ import java.util.*;
 		}
 
 		public void sort() {
-			System.out.println("\nSORT OPTIONS\n1.By first name\n2.By city\n3.By state\nBy zip");
+			System.out.println("\nSORT OPTIONS\n1.By first name\n2.By zip\n3.By state\n4By city");
 			ch = sc.nextInt();
 			ArrayList<String> name = new ArrayList<>();
+			ArrayList<Integer> zip = new ArrayList<>();
+			ArrayList<String> stateName = new ArrayList<>();
+			ArrayList<String> cityName = new ArrayList<>();
 			switch (ch) {
 				case 1:
 					for (Map.Entry<String, PersonDetails> entry : personMap.entrySet()) {
@@ -133,7 +136,30 @@ import java.util.*;
 					Collections.sort(name);
 					System.out.println("The sorted first names are:" + personMap);
 					break;
-
+				case 2:
+					for (Map.Entry<String, PersonDetails> entry : personMap.entrySet()) {
+						PersonDetails p = entry.getValue();
+						zip.add(p.getZipCode());
+					}
+					Collections.sort(zip);
+					System.out.println("The sorted zip are:" + personMap);
+					break;
+				case 3:
+					for (Map.Entry<String, PersonDetails> entry : personMap.entrySet()) {
+						PersonDetails p = entry.getValue();
+						stateName.add(p.getState());
+					}
+					Collections.sort(stateName);
+					System.out.println("The sorted state names are:" + personMap);
+					break;
+				case 4:
+					for (Map.Entry<String, PersonDetails> entry : personMap.entrySet()) {
+						PersonDetails p = entry.getValue();
+						cityName.add(p.getCity());
+					}
+					Collections.sort(cityName);
+					System.out.println("The sorted city names are:" + personMap);
+					break;
 			}
 		}
 
