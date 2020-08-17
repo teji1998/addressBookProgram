@@ -121,9 +121,9 @@ import java.util.*;
 		}
 
 		public void sort() {
-			System.out.println("\nSORT OPTIONS\n1.By first name");
+			System.out.println("\nSORT OPTIONS\n1.By first name\n2.By city\n3.By state\nBy zip");
 			ch = sc.nextInt();
-			ArrayList<String> name = new ArrayList<String>();
+			ArrayList<String> name = new ArrayList<>();
 			switch (ch) {
 				case 1:
 					for (Map.Entry<String, PersonDetails> entry : personMap.entrySet()) {
@@ -131,8 +131,9 @@ import java.util.*;
 						name.add(p.getFirstName());
 					}
 					Collections.sort(name);
-					System.out.println("The sorted last names are:" + name);
+					System.out.println("The sorted first names are:" + personMap);
 					break;
+
 			}
 		}
 
