@@ -1,91 +1,82 @@
 package com.addressbook;
 
 public class PersonDetails {
-		private String firstName;
-		private String lastName;
-		private String street;
-		private String city;
-		private String state;
-		private int zipCode;
-		private long phoneNum;
+	private String firstName;
+	private String lastName;
+	private String street;
+	private String city;
+	private String state;
+	private int zipCode;
+	private long phoneNum;
 
-		public PersonDetails(String firstName, String lastName, String street, String city, String state, int zipCode, long phoneNum) {
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.street = street;
-			this.city = city;
-			this.state = state;
-			this.zipCode = zipCode;
-			this.phoneNum = phoneNum;
-		}
+	public PersonDetails(String firstName, String lastName, String street, String city, String state, int zipCode, long phoneNum) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+		this.phoneNum = phoneNum;
+	}
 
-		public String getFirstName() {
+	public String getFirstName() {
+		return firstName;
+	}
 
-			return firstName;
-		}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-		public void setFirstName(String firstName) {
-			this.firstName = firstName;
-		}
+	public String getLastName() {
+		return lastName;
+	}
 
-		public String getLastName() {
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-			return lastName;
-		}
+	public String getStreet() {
+		return street;
+	}
 
-		public void setLastName(String lastName) {
+	public void setStreet(String street){
+		this.street = street;
+	}
 
-			this.lastName = lastName;
-		}
+	public String getCity() {
+		return city;
+	}
 
-		public String getStreet() {
-			return street;
-		}
+	public void setCity(String city) {
+		this.city = city;
+	}
 
-		public void setStreet(String street) {
-			this.street = street;
-		}
+	public String getState() {
+		return state;
+	}
 
-		public String getCity() {
-			return city;
-		}
+	public void setState(String state) {
+		this.state = state;
+	}
 
-		public void setCity(String city) {
-			this.city = city;
-		}
+	public int getZipCode() {
+		return zipCode;
+	}
 
-		public String getState() {
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
+	}
 
-			return state;
-		}
+	public long getPhoneNum() {
+		return phoneNum;
+	}
 
-		public void setState(String state) {
+	public void setPhoneNum(long phoneNum) {
+		this.phoneNum = phoneNum;
+	}
 
-			this.state = state;
-		}
-
-		public int getZipCode() {
-
-			return zipCode;
-		}
-
-		public void setZipCode(int zipCode) {
-
-			this.zipCode = zipCode;
-		}
-
-		public long getPhoneNum() {
-
-			return phoneNum;
-		}
-
-		public void setPhoneNum(long phoneNum) {
-
-			this.phoneNum = phoneNum;
-		}
-
-		@Override
-		public String toString() {
-			return " \nFirstName : " + this.firstName + " \nLastName : " + this.lastName + " \nStreet : " + this.street + " \nCity : " + this.city + "\nState : " + this.state + " \nZipcode : " + this.zipCode + " \nPhoneNumber : " + this.phoneNum;
-		}
+	@Override
+	public String toString() {
+		return " \nFirstName : " + this.firstName + " \nLastName : " + this.lastName + " \nStreet : " + this.street + " \nCity : " + this.city + "\nState : " + this.state + " \nZipcode : " + this.zipCode + " \nPhoneNumber : " + this.phoneNum;
+	}
 }
