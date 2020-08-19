@@ -1,50 +1,52 @@
 package com.addressbook;
-import java.util.*;
-	public class AddressBook {
-		static HashMap<String, PersonDetails> personMap = new HashMap<String, PersonDetails>();
-		Scanner sc = new Scanner(System.in);
-		String firstName;
-		String lastName = " ";
-		String street = " ";
-		String city = " ";
-		String state;
-		int zipCode;
-		long phoneNum = 0;
-		String fullName;
-		int ch = 0;
 
-		public void menu() {
-			do {
-				System.out.println("---------MAIN MENU---------");
-				System.out.println("OPTIONS\n1.Add a person\n2.Edit Details\n3.Delete a person\n4.Sort\n5.Print\n6.Search person");
-				System.out.println("Enter your choice");
-				ch = sc.nextInt();
-				switch (ch) {
-					case 1:
-						do {
-							System.out.println("Enter first name");
-							firstName = sc.next();
-							System.out.println("Enter last name");
-							lastName = sc.next();
-							System.out.println("Enter street");
-							street = sc.next();
-							System.out.println("Enter city");
-							city = sc.next();
-							System.out.println("Enter state");
-							state = sc.next();
-							System.out.println("Enter zipcode");
-							zipCode = sc.nextInt();
-							System.out.println("Enter phone number");
-							phoneNum = sc.nextLong();
-							if (personMap.containsKey(firstName)) {
-								System.out.println("Key already exists");
-							} else {
-								PersonDetails person = new PersonDetails(firstName, lastName, street, city, state, zipCode, phoneNum);
-								personMap.put(person.getFirstName(), person);
-							}
-							System.out.println("Enter 1 to add more people, 0 to stop");
-							ch = sc.nextInt();
-						} while (ch != 0);
+import java.util.*;
+public class AddressBook {
+	static HashMap<String, PersonDetails> personMap = new HashMap<String, PersonDetails>();
+	Scanner sc = new Scanner(System.in);
+	int choice = 0;
+
+	public void menu() {
+		do {
+			String firstName;
+			String lastName = " ";
+			String street = " ";
+			String city = " ";
+			String state;
+			int zipCode;
+			long phoneNum = 0;
+			String fullName;
+			System.out.println("---------MAIN MENU---------");
+			System.out.println("OPTIONS\n1.Add a person\n2.Edit Details\n3.Delete a person\n4.Sort\n5.Print\n6.Search person");
+			System.out.println("Enter your choice");
+			choice = sc.nextInt();
+			switch (choice) {
+				case 1:
+					do {
+						System.out.println("Enter first name");
+						firstName = sc.next();
+						System.out.println("Enter last name");
+						lastName = sc.next();
+						System.out.println("Enter street");
+						street = sc.next();
+						System.out.println("Enter city");
+						city = sc.next();
+						System.out.println("Enter state");
+						state = sc.next();
+						System.out.println("Enter zipcode");
+						zipCode = sc.nextInt();
+						System.out.println("Enter phone number");
+						phoneNum = sc.nextLong();
+						if (personMap.containsKey(firstName))
+						{
+							System.out.println("Key already exists");
+						} else {
+							PersonDetails person = new PersonDetails(firstName, lastName, street, city, state, zipCode, phoneNum);
+							personMap.put(person.getFirstName(), person);
+						}
+						System.out.println("Enter 1 to add more people, 0 to stop");
+						choice = sc.nextInt();
+						} while (choice != 0);
 						break;
 					case 2:
 						System.out.println("Enter first name of the person");
@@ -54,7 +56,7 @@ import java.util.*;
 					case 3:
 						System.out.println("Enter first name of the person to be deleted");
 						firstName = sc.next();
-						del(firstName);
+						delete(firstName);
 						break;
 					case 4:
 						sort();
@@ -70,8 +72,8 @@ import java.util.*;
 						System.out.println("Invalid output!");
 				}
 				System.out.println("Enter 0 to quit, 1 to go to main menu");
-				ch = sc.nextInt();
-			} while (ch != 0);
+				choice = sc.nextInt();
+			} while (choice != 0);
 		}
 
 		public void add(String nameKey, PersonDetails P) {
@@ -79,58 +81,58 @@ import java.util.*;
 		}
 
 		public void edit(String name) {
-			System.out.println("OPTIONS\n1.Edit street\n2.Edit city\n3.Edit state\n4.Edit Zip code\n5.Edit phone number");
+			System.out.println("OPTIONS\n1.Edit last name\n2.Edit street\n3.Edit city\n4.Edit state\n5.Edit Zip code\n6.Edit phone number");
 			do {
 				System.out.println("Enter your choice");
-				ch = sc.nextInt();
-				PersonDetails p = personMap.get(name);
-				switch (ch) {
-					case 1:
-						System.out.println("Enter new street name");
-						String newStreet = sc.next();
-						p.setStreet(newStreet);
+				choice=sc.nextInt();
+				PersonDetails p=personMap.get(name);
+				switch(choice) {
+					case 1: System.out.println("Enter new last name");
+						String newName=sc.next();
+						p.setLastName(newName);
 						break;
-					case 2:
-						System.out.println("Enter new city name");
-						String newCity = sc.next();
+					case 2: System.out.println("Enter new street name");
+						String newStreet=sc.next();
+						p.setStreet(newStreet);
+						personMap.replace(name, p);
+						break;
+					case 3: System.out.println("Enter new city name");
+						String newCity=sc.next();
 						p.setCity(newCity);
 						break;
-					case 3:
-						System.out.println("Enter new state name");
-						String newState = sc.next();
+					case 4: System.out.println("Enter new state name");
+						String newState=sc.next();
 						p.setState(newState);
 						break;
-					case 4:
-						System.out.println("Enter new zip code");
-						int newZip = sc.nextInt();
+					case 5: System.out.println("Enter new zip code");
+						int newZip=sc.nextInt();
 						p.setZipCode(newZip);
 						break;
-					case 5:
-						System.out.println("Enter new phone number");
-						long newPhone = sc.nextLong();
+					case 6: System.out.println("Enter new phone number");
+						long newPhone=sc.nextLong();
 						p.setPhoneNum(newPhone);
 						break;
 					default:
-						System.out.println("Invalid output!");
+						System.out.println("Invalid Output");
 				}
 				System.out.println("Enter 1 to continue editing,0 to quit");
-				ch = sc.nextInt();
-			} while (ch != 0);
+				choice=sc.nextInt();
+			}while(choice!=0);
+			search(name);
 		}
-
-		public void del(String name) {
+		public void delete(String name) {
 			personMap.remove(name);
 			System.out.println(name + "'s details has been deleted from address book");
 		}
 
 		public void sort() {
 			System.out.println("\nSORT OPTIONS\n1.By first name\n2.By zip\n3.By state\n4By city");
-			ch = sc.nextInt();
+			choice = sc.nextInt();
 			ArrayList<String> name = new ArrayList<>();
 			ArrayList<Integer> zip = new ArrayList<>();
 			ArrayList<String> stateName = new ArrayList<>();
 			ArrayList<String> cityName = new ArrayList<>();
-			switch (ch) {
+			switch (choice) {
 				case 1:
 					for (Map.Entry<String, PersonDetails> entry : personMap.entrySet()) {
 						PersonDetails p = entry.getValue();
